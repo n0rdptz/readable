@@ -9,7 +9,7 @@ class Navigation extends Component {
     const {categories} = this.state;
     return (
       <nav>
-        <ul>
+        <ul className="vertical menu">
           {categories.map((category, index) => (
             <li key={index}>
               <a>{category}</a>

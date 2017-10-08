@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import Post from '../../components/Post/Post'
 
 class Posts extends Component {
   render() {
-    return (<div>Component</div>)
+    return (
+      <div className="posts">
+        <Post />
+        <Post />
+        <Post />
+      </div>
+    )
   }
 }
 

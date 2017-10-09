@@ -4,7 +4,7 @@ body {
   font-family: 'Droid Sans', sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Berkshire Swash', cursive;
+  font-family: 'Handlee', cursive;
 }
 .button {
   margin: 0;
@@ -20,6 +20,9 @@ h1, h2, h3, h4, h5, h6 {
 header {
   flex-basis: 100%;
   background-color: #323232;
+  color: #fff;
+}
+header a {
   color: #fff;
 }
 header .center {
@@ -70,3 +73,6 @@ main {
   cursor: pointer;
 }
 
+.post-form .button {
+  margin-right: 5px;
+}

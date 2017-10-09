@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
+import { withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+
 
 class Page extends Component {
 
@@ -24,4 +27,12 @@ class Page extends Component {
   }
 }
 
-export default Page;
+function mapStateToProps ({ food, calendar }) {
+
+}
+
+function mapDispatchToProps (dispatch) {
+
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page))

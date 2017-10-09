@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   render() {
     return (
       <header className="header">
         <div className="center">
-          <h1>Readable</h1>
+          <Link to="/"><h1>Readable</h1></Link>
 
-          <button type="button" className="button primary crate-post-btn">Create new post</button>
+          <Link to="/create-post" className="button primary crate-post-btn">Create new post</Link>
         </div>
       </header>
     )

@@ -3,8 +3,15 @@ import {Route} from 'react-router-dom';
 import Page from '../Page/Page';
 import Posts from '../Posts/Posts';
 import PostForm from '../PostForm/PostForm';
+import {fetchCategoriesIfNeeded} from '../../actions/categories';
+import {connect} from 'react-redux';
 
 class App extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchCategoriesIfNeeded());
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,4 +45,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps ({  }) {
+  return {};
+}
+
+export default connect(mapStateToProps)(App)

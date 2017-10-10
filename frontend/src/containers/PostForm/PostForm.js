@@ -43,12 +43,12 @@ class PostForm extends Component {
   }
 }
 
-function mapStateToProps ({ food, calendar }) {
-
+function mapStateToProps ({  }) {
+  return {};
 }
 
 function mapDispatchToProps (dispatch) {
-
+  return {};
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostForm))

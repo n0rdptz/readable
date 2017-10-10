@@ -4,10 +4,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-
 class Page extends Component {
-
-
   render() {
     const {props} = this;
 
@@ -27,7 +24,7 @@ class Page extends Component {
   }
 }
 
-function mapStateToProps ({  }) {
+function mapStateToProps () {
   return {};
 }
 

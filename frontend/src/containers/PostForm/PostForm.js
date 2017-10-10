@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 class PostForm extends Component {
   render() {
-    console.log(this);
+    const {history} = this.props;
     return (
       <div className="post-form">
         <form action="">
@@ -34,7 +34,7 @@ class PostForm extends Component {
           </div>
 
           <div className="row">
-            <a className="button secondary">Back</a>
+            <a onClick={history.goBack} className="button secondary">Back</a>
             <a className="button primary">Save</a>
           </div>
         </form>
@@ -43,7 +43,7 @@ class PostForm extends Component {
   }
 }
 
-function mapStateToProps ({  }) {
+function mapStateToProps () {
   return {};
 }
 

@@ -3,8 +3,11 @@ import {Route} from 'react-router-dom';
 import Page from '../Page/Page';
 import Posts from '../Posts/Posts';
 import PostForm from '../PostForm/PostForm';
+import CommentForm from '../CommentForm/CommentForm';
+import PostDetail from '../PostDetail/PostDetail';
 import {fetchCategoriesIfNeeded} from '../../actions/categories';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
@@ -21,32 +24,42 @@ class App extends Component {
           </Page>
         )} />
 
-        <Route path="/create-post/" render={() => (
+        <Route path="/posts/:category?" render={() => (
+          <Page>
+            <Posts />
+          </Page>
+        )} />
+
+        <Route path="/post/:id" render={() => (
+          <Page>
+            <PostDetail />
+          </Page>
+        )} />
+
+        <Route path="/post-create/" render={() => (
           <Page>
             <PostForm />
           </Page>
         )} />
 
-        <Route path="/edit-post/:id" render={() => (
+        <Route path="/post-edit/:id" render={() => (
           <Page>
             <PostForm />
           </Page>
         )} />
 
-        <Route path="/edit-comment/:id" render={() => (
+        <Route path="/comment-edit/:id" render={() => (
           <Page>
-            <PostForm />
+            <CommentForm />
           </Page>
         )} />
-
-
       </div>
     );
   }
 }
 
-function mapStateToProps ({  }) {
+function mapStateToProps () {
   return {};
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect()(App))

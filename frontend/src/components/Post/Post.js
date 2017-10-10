@@ -3,14 +3,19 @@ import MdThumbUp from 'react-icons/lib/md/thumb-up';
 import MdThumbDown from 'react-icons/lib/md/thumb-down';
 import MdEdit from 'react-icons/lib/md/edit';
 import MdHighlightRemove from 'react-icons/lib/md/highlight-remove';
+import { withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class Post extends Component {
   render() {
+    let id = 5;
+
     return (
       <div className="row">
         <div className="card">
           <div className="card-divider">
-            <h4>I'm featured</h4>
+            <Link to={{pathname: `/post/${id}`}}><h4>I'm featured</h4></Link>
           </div>
           <div className="card-section">
             <p>This card makes use of the card-divider element.</p>
@@ -28,7 +33,9 @@ class Post extends Component {
             </div>
 
             <div className="post-controls">
-              <MdEdit style={{cursor: 'pointer'}} />
+              <Link to={{pathname: `/post-edit/${id}`}}>
+                <MdEdit style={{cursor: 'pointer'}} />
+              </Link>
               <MdHighlightRemove style={{cursor: 'pointer'}} />
             </div>
           </div>
@@ -38,4 +45,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default withRouter(connect()(Post));

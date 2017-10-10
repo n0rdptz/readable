@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Navigation extends Component {
-  state = {
-    categories: ['Redux', 'React', 'JavaScript']
-  };
-
   render() {
-    const {categories} = this.state;
+    const {categories} = this.props;
     return (
       <nav>
         <ul className="vertical menu">
-          {categories.map((category, index) => (
-            <li key={index}>
-              <a>{category}</a>
+          {categories.items.map(category => (
+            <li key={category.path}>
+              <Link className="nav-link" to={{pathname: `/posts/${category.path}`}}>{category.name}</Link>
             </li>
           ))}
         </ul>
@@ -21,4 +20,10 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+function mapStateToProps ({ categories }) {
+  return {
+    categories
+  };
+}
+
+export default withRouter(connect(mapStateToProps)(Navigation))

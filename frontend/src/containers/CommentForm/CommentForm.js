@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class CommentForm extends Component {
   render() {
+    const {history} = this.props;
     return (
-      <div className="post-form">
+      <div className="comment-form">
         <form action="">
           <div className="row">
             <label htmlFor="post-text">Text</label>
@@ -12,7 +15,7 @@ class CommentForm extends Component {
           </div>
 
           <div className="row">
-            <a className="button secondary">Back</a>
+            <a onClick={history.goBack} className="button secondary">Back</a>
             <a className="button primary">Save</a>
           </div>
         </form>
@@ -21,4 +24,4 @@ class CommentForm extends Component {
   }
 }
 
-export default CommentForm;
+export default withRouter(connect()(CommentForm));

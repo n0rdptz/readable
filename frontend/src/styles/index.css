@@ -37,6 +37,10 @@ nav {
   flex-basis: 200px;
 }
 
+.nav-link {
+  text-transform: capitalize;
+}
+
 main {
   flex-basis: 100%;
 }
@@ -73,6 +77,24 @@ main {
   cursor: pointer;
 }
 
-.post-form .button {
+.post-form .button,
+.comment-form .button {
   margin-right: 5px;
+}
+
+.comments {
+  padding-left: 50px;
+}
+
+.comments .card {
+  font-size: 14px;
+}
+
+.comments .card .card-section,
+.comments .card .card-footer {
+  padding: 10px;
+}
+
+.comments .card .card-footer {
+  font-size: 13px;
 }

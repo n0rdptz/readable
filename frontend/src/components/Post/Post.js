@@ -6,34 +6,34 @@ import MdHighlightRemove from 'react-icons/lib/md/highlight-remove';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import * as moment from 'moment';
 
 class Post extends Component {
   render() {
-    let id = 5;
+    const {post} = this.props;
 
     return (
       <div className="row">
         <div className="card">
           <div className="card-divider">
-            <Link to={{pathname: `/post/${id}`}}><h4>I'm featured</h4></Link>
+            <Link to={{pathname: `/post/${post.id}`}}><h4>{post.title}</h4></Link>
           </div>
           <div className="card-section">
-            <p>This card makes use of the card-divider element.</p>
+            <p>{post.body}</p>
           </div>
           <div className="card-section card-footer">
             <p>
-              <span className="post-author">Author</span>,
-              <span className="post-timestamp">12:12</span>
+              <span className="post-author">{post.author}</span>, <span className="post-timestamp">{moment(post.timestamp).format("MM-DD-YYYY")}</span>
             </p>
 
             <div className="post-vote">
               <MdThumbDown style={{cursor: 'pointer'}} />
-              <span className="vote-score">5</span>
+              <span className="vote-score">{post.voteScore}</span>
               <MdThumbUp style={{cursor: 'pointer'}} />
             </div>
 
             <div className="post-controls">
-              <Link to={{pathname: `/post-edit/${id}`}}>
+              <Link to={{pathname: `/post-edit/${post.id}`}}>
                 <MdEdit style={{cursor: 'pointer'}} />
               </Link>
               <MdHighlightRemove style={{cursor: 'pointer'}} />

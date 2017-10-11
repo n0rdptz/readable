@@ -12,7 +12,7 @@ function requestCategories() {
 function receiveCategories(categories) {
   return {
     type: RECEIVE_CATEGORIES,
-    categories: categories
+    categories
   }
 }
 

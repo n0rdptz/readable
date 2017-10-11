@@ -22,7 +22,9 @@ header {
   background-color: #323232;
   color: #fff;
 }
-header a {
+header a,
+header a:hover,
+header a:active {
   color: #fff;
 }
 header .center {
@@ -50,18 +52,18 @@ main {
   padding-left: 20px;
 }
 
-.posts {
-
-}
-
-.post {}
-
 .card-footer {
   border-top: 1px solid #e6e6e6;
   color: #616161;
   font-size: 15px;
   display: flex;
   justify-content: space-between;
+}
+
+.card-footer a,
+.card-footer a:hover,
+.card-footer a:active {
+  color: #616161;
 }
 
 .card-footer p {

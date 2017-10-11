@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Redirect} from 'react-router-dom';
 import Page from '../Page/Page';
 import Posts from '../Posts/Posts';
 import PostForm from '../PostForm/PostForm';
@@ -19,9 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" exact render={() => (
-          <Page>
-            <Posts />
-          </Page>
+          <Redirect to="/posts/" />
         )} />
 
         <Route path="/posts/:category?" render={() => (

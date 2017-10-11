@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
-import Post from '../../components/Post/Post'
+import Post from '../../components/Post/Post';
+import {getPosts} from '../../actions/posts';
+import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Posts extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(getPosts());
+  }
+
   render() {
+    const { category } = this.props.match.params;
+    const posts = this.props.posts.items.filter(post => post.category === category);
+
     return (
       <div className="posts">
-        <Post />
-        <Post />
-        <Post />
+        {posts.map(post => (
+          <Post key={post.id} post={post} />
+        ))}
       </div>
     )
   }
 }
 
-export default Posts;
+function mapStateToProps ({posts}) {
+  return {posts};
+}
+
+export default withRouter(connect(mapStateToProps)(Posts))

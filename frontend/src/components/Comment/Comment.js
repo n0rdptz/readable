@@ -18,8 +18,7 @@ class Comment extends Component {
           </div>
           <div className="card-section card-footer">
             <p>
-              <span className="post-author">Author</span>,
-              <span className="post-timestamp">12:12</span>
+              <span className="post-author">Author</span>, <span className="post-timestamp">12:12</span>
             </p>
 
             <div className="post-vote">

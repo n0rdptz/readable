@@ -13,9 +13,49 @@ const defaultData = {
     deleted: false,
     parentDeleted: false
   },
+  "894tuq4ut84ut8v4t8wun89f": {
+    id: '894tuq4ut84ut8v4t8wun89f',
+    parentId: "8xf0y6ziyjabvozdd253nd",
+    timestamp: 1468166872634,
+    body: 'Hi there! I am a COMMENT.',
+    author: 'thingtwo',
+    voteScore: 6,
+    deleted: false,
+    parentDeleted: false
+  },
+  "894tuq4ut84ut8v4t8wun89d": {
+    id: '894tuq4ut84ut8v4t8wun89d',
+    parentId: "6ni6ok3ym7mf1p33lnez",
+    timestamp: 1468166872634,
+    body: 'Hi there! I am a COMMENT.',
+    author: 'thingtwo',
+    voteScore: 6,
+    deleted: false,
+    parentDeleted: false
+  },
+  "894tuq4ut84ut8v4t8wun89s": {
+    id: '894tuq4ut84ut8v4t8wun89s',
+    parentId: "6ni6ok3ym7mf1p33lney",
+    timestamp: 1468166872634,
+    body: 'Hi there! I am a COMMENT.',
+    author: 'thingtwo',
+    voteScore: 6,
+    deleted: false,
+    parentDeleted: false
+  },
+  "894tuq4ut84ut8v4t8wun89a": {
+    id: '894tuq4ut84ut8v4t8wun89a',
+    parentId: "1",
+    timestamp: 1468166872634,
+    body: 'Hi there! I am a COMMENT.',
+    author: 'thingtwo',
+    voteScore: 6,
+    deleted: false,
+    parentDeleted: false
+  },
   "8tu4bsun805n8un48ve89": {
     id: '8tu4bsun805n8un48ve89',
-    parentId: "8xf0y6ziyjabvozdd253nd",
+    parentId: "2",
     timestamp: 1469479767190,
     body: 'Comments. Are. Cool.',
     author: 'thingone',

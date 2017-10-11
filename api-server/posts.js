@@ -13,6 +13,16 @@ const defaultData = {
     voteScore: 6,
     deleted: false
   },
+  "8xf0y6ziyjabvozdd253ne": {
+    id: '8xf0y6ziyjabvozdd253ne',
+    timestamp: 1467166872634,
+    title: 'React - A JavaScript library for building user interfaces',
+    body: 'React makes it painless to create interactive UIs.',
+    author: 'thingtwo',
+    category: 'react',
+    voteScore: 6,
+    deleted: false
+  },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
     timestamp: 1468479767190,
@@ -20,7 +30,37 @@ const defaultData = {
     body: 'Just kidding. It takes more than 10 minutes to learn technology.',
     author: 'thingone',
     category: 'redux',
-    voteScore: -5,
+    voteScore: -3,
+    deleted: false
+  },
+  "6ni6ok3ym7mf1p33lney": {
+    id: '6ni6ok3ym7mf1p33lney',
+    timestamp: 1468479767190,
+    title: 'Redux',
+    body: 'Redux is a predictable state container for JavaScript apps.',
+    author: 'thingone',
+    category: 'udacity',
+    voteScore: 1,
+    deleted: false
+  },
+  "1": {
+    id: '1',
+    timestamp: 1468479767190,
+    title: 'Udacity',
+    body: 'Join Udacity to learn the latest in Deep Learning, Machine Learning, Web Development & more, with Nanodegree programs & free online courses.',
+    author: 'thingone',
+    category: 'udacity',
+    voteScore: 0,
+    deleted: false
+  },
+  "2": {
+    id: '2',
+    timestamp: 1468479767190,
+    title: 'React Nanodegree Program',
+    body: 'React is completely transforming Front-End Development. Master this powerful UI library from Facebook with Udacity and the experts from React Training.',
+    author: 'thingone',
+    category: 'redux',
+    voteScore: 4,
     deleted: false
   }
 }

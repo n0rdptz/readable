@@ -9,6 +9,9 @@ class Navigation extends Component {
     return (
       <nav>
         <ul className="vertical menu">
+          <li>
+            <Link className="nav-link" to={{pathname: `/posts/`}}>All</Link>
+          </li>
           {categories.items.map(category => (
             <li key={category.path}>
               <Link className="nav-link" to={{pathname: `/posts/${category.path}`}}>{category.name}</Link>

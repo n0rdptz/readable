@@ -12,6 +12,8 @@ import registerServiceWorker from './registerServiceWorker';
 import * as API from './utils/api';
 import configureStore from './store/configureStore';
 
+// API.votePost('1', 'upVote')
+//    .then(data => console.log('vote', data));
 // API.getCategories()
 //   .then(categories => console.log('categories', categories));
 // API.addPost({

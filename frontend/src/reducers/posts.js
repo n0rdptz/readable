@@ -35,7 +35,14 @@ function posts(state = initialStore, action) {
     case RECEIVE_POST_DETAILS:
       return state;
     case VOTE_POST:
-      return state;
+      return {
+        ...state,
+        items: state.items.map(post => {
+          return post.id === action.post.id ?
+            action.post :
+            post;
+        })
+      };
     case EDIT_POST:
       return state;
     case DELETE_POST:

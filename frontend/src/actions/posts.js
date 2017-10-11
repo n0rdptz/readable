@@ -49,3 +49,17 @@ export const getPosts = function(category) {
     }
   }
 };
+
+function vote(post) {
+  return {
+    type: VOTE_POST,
+    post
+  }
+}
+
+export const votePost = function(id, option) {
+  return dispatch => {
+    API.votePost(id, option)
+      .then(post => dispatch(vote(post)));
+  };
+};

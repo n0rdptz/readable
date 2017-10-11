@@ -12,7 +12,12 @@ class Posts extends Component {
 
   render() {
     const { category } = this.props.match.params;
-    const posts = this.props.posts.items.filter(post => post.category === category);
+    let posts = null;
+    if (category) {
+      posts = this.props.posts.items.filter(post => post.category === category);
+    } else {
+      posts = this.props.posts.items;
+    }
 
     return (
       <div className="posts">

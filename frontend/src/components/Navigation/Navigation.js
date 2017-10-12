@@ -8,16 +8,18 @@ class Navigation extends Component {
     const {categories} = this.props;
     return (
       <nav>
-        <ul className="vertical menu">
-          <li>
-            <Link className="nav-link" to={{pathname: `/posts/`}}>All</Link>
-          </li>
-          {categories.items.map(category => (
-            <li key={category.path}>
-              <Link className="nav-link" to={{pathname: `/posts/${category.path}`}}>{category.name}</Link>
+        {categories.items.length > 0 &&
+          <ul className="vertical menu">
+            <li>
+              <Link className="nav-link" to={{pathname: `/posts/`}}>All</Link>
             </li>
-          ))}
-        </ul>
+            {categories.items.map(category => (
+              <li key={category.path}>
+                <Link className="nav-link" to={{pathname: `/posts/${category.path}`}}>{category.name}</Link>
+              </li>
+            ))}
+          </ul>
+        }
       </nav>
     )
   }

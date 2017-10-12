@@ -79,6 +79,20 @@ main {
   cursor: pointer;
 }
 
+.post-title,
+.post-title option {
+  text-transform: capitalize;
+}
+
+.post-form {
+  position: relative;
+}
+.post-form .form-alert {
+  color: #f00;
+  position: absolute;
+  top: 100%;
+}
+
 .post-form .button,
 .comment-form .button {
   margin-right: 5px;

@@ -84,3 +84,17 @@ export const getPostDetails = function(id) {
       .then(post => dispatch(receivePostDetails(post)));
   }
 };
+
+function edit(post) {
+  return {
+    type: EDIT_POST,
+    post
+  }
+}
+
+export const editPost = function(id, post) {
+  return dispatch => {
+    API.editPost(id, post)
+      .then(post => dispatch(edit(post)));
+  }
+};

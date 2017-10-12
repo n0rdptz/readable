@@ -49,7 +49,15 @@ function posts(state = initialStore, action) {
         })
       };
     case EDIT_POST:
-      return state;
+      return {
+        ...state,
+        items: state.items.map(post => {
+          if (post.id === action.post.id) {
+            return action.post;
+          }
+          return post;
+        })
+      };
     case DELETE_POST:
       return state;
     case REQUEST_POST_COMMENT:

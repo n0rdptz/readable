@@ -39,7 +39,7 @@ const defaultData = {
     title: 'Redux',
     body: 'Redux is a predictable state container for JavaScript apps.',
     author: 'thingone',
-    category: 'udacity',
+    category: 'redux',
     voteScore: 1,
     deleted: false
   },
@@ -59,7 +59,7 @@ const defaultData = {
     title: 'React Nanodegree Program',
     body: 'React is completely transforming Front-End Development. Master this powerful UI library from Facebook with Udacity and the experts from React Training.',
     author: 'thingone',
-    category: 'redux',
+    category: 'udacity',
     voteScore: 4,
     deleted: false
   }

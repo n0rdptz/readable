@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import Page from '../Page/Page';
 import Posts from '../Posts/Posts';
-import PostForm from '../PostForm/PostForm';
+import EditPostForm from '../../components/EditPostForm/EditPostForm';
+import CreatePostForm from '../../components/CreatePostForm/CreatePostForm';
 import CommentForm from '../CommentForm/CommentForm';
 import PostDetail from '../PostDetail/PostDetail';
 import {fetchCategoriesIfNeeded} from '../../actions/categories';
@@ -36,13 +37,13 @@ class App extends Component {
 
         <Route path="/post-create/" render={() => (
           <Page>
-            <PostForm />
+            <CreatePostForm />
           </Page>
         )} />
 
         <Route path="/post-edit/:id" render={() => (
           <Page>
-            <PostForm />
+            <EditPostForm />
           </Page>
         )} />
 

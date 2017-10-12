@@ -9,14 +9,16 @@ import {Link} from 'react-router-dom';
 import * as moment from 'moment';
 import {votePost} from '../../actions/posts';
 
+
 class Post extends Component {
   votePost(id, option) {
-    const { post, dispatch } = this.props;
+    const { dispatch } = this.props;
     dispatch(votePost(id, option));
   }
 
   render() {
     const {post} = this.props;
+    console.log(post);
 
     return (
       <div className="row">
@@ -51,4 +53,8 @@ class Post extends Component {
   }
 }
 
-export default withRouter(connect()(Post));
+function mapStateToProps ({posts}) {
+  return {posts};
+}
+
+export default withRouter(connect(mapStateToProps)(Post));

@@ -63,3 +63,24 @@ export const votePost = function(id, option) {
       .then(post => dispatch(vote(post)));
   };
 };
+
+function requestPostDetails() {
+  return {
+    type: REQUEST_POST_DETAILS
+  }
+}
+
+function receivePostDetails(post) {
+  return {
+    type: RECEIVE_POST_DETAILS,
+    post
+  }
+}
+
+export const getPostDetails = function(id) {
+  return dispatch => {
+    dispatch(requestPostDetails());
+    API.getPostDetails(id)
+      .then(post => dispatch(receivePostDetails(post)));
+  }
+};

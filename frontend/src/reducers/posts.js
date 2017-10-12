@@ -31,9 +31,14 @@ function posts(state = initialStore, action) {
     case ADD_POST:
       return state;
     case REQUEST_POST_DETAILS:
-      return state;
+      return Object.assign({}, state, {
+        isFetching: true
+      });
     case RECEIVE_POST_DETAILS:
-      return state;
+      return Object.assign({}, state, {
+        isFetching: false,
+        items: state.items.concat(action.post)
+      });
     case VOTE_POST:
       return {
         ...state,

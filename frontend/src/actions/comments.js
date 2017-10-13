@@ -91,3 +91,17 @@ export const addComment = function(comment) {
       .then(comment => dispatch(add(comment)));
   }
 };
+
+function delComment(comment) {
+  return {
+    type: DELETE_COMMENT,
+    comment
+  };
+}
+
+export const deleteComment = function(id) {
+  return dispatch => {
+    API.deleteComment(id)
+      .then(comment => dispatch(delComment(comment)));
+  }
+};

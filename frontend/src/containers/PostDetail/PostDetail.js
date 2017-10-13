@@ -24,7 +24,7 @@ class PostDetail extends Component {
     const {id} = this.props.match.params;
     const {posts, comments} = this.props;
     const post = posts.items.filter(post => post.id === id)[0];
-    const showingComments = comments.items.filter(comment => comment.parentId === id);
+    const showingComments = comments.items.filter(comment => comment.parentId === id && !comment.deleted);
 
     return (
       <div className="post-detail">

@@ -14,9 +14,9 @@ class Posts extends Component {
     const { category } = this.props.match.params;
     let posts = null;
     if (category) {
-      posts = this.props.posts.items.filter(post => post.category === category);
+      posts = this.props.posts.items.filter(post => post.category === category && !post.deleted);
     } else {
-      posts = this.props.posts.items;
+      posts = this.props.posts.items.filter(post => !post.deleted);
     }
 
     return (

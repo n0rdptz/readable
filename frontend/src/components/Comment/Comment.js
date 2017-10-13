@@ -7,8 +7,13 @@ import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as moment from 'moment';
+import {voteComment} from '../../actions/comments';
 
 class Comment extends Component {
+  voteComment(id, option) {
+    const { dispatch } = this.props;
+    dispatch(voteComment(id, option));
+  }
   render() {
     const {comment} = this.props;
 
@@ -24,9 +29,9 @@ class Comment extends Component {
             </p>
 
             <div className="post-vote">
-              <MdThumbDown style={{cursor: 'pointer'}} />
+              <MdThumbDown onClick={() => this.voteComment(comment.id, 'downVote')} style={{cursor: 'pointer'}} />
               <span className="vote-score">{comment.voteScore}</span>
-              <MdThumbUp style={{cursor: 'pointer'}} />
+              <MdThumbUp onClick={() => this.voteComment(comment.id, 'upVote')} style={{cursor: 'pointer'}} />
             </div>
 
             <div className="post-controls">

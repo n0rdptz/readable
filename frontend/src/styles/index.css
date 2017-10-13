@@ -98,6 +98,10 @@ main {
   margin-right: 5px;
 }
 
+.comment-form {
+  margin-bottom: 20px;
+}
+.comment-form,
 .comments {
   padding-left: 50px;
 }

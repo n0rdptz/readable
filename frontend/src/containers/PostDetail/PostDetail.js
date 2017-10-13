@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from '../../components/Post/Post';
+import CreateCommentForm from '../../components/CreateCommentForm/CreateCommentForm';
 import Comments from '../Comments/Comments';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -24,7 +25,9 @@ class PostDetail extends Component {
     const {id} = this.props.match.params;
     const {posts, comments} = this.props;
     const post = posts.items.filter(post => post.id === id)[0];
-    const showingComments = comments.items.filter(comment => comment.parentId === id && !comment.deleted);
+    const showingComments = comments.items
+      .filter(comment => comment.parentId === id && !comment.deleted)
+      .sort((a, b) => a.voteScore < b.voteScore);
 
     return (
       <div className="post-detail">
@@ -33,6 +36,9 @@ class PostDetail extends Component {
         }
         {post !== undefined &&
           <Post post={post} />
+        }
+        {post !== undefined &&
+          <CreateCommentForm parentId={post.id} />
         }
         {showingComments.length > 0 &&
           <Comments comments={showingComments} />

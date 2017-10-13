@@ -57,7 +57,6 @@ class CreatePostForm extends Component {
   }
   render() {
     const {categories, history} = this.props;
-    console.log(this.state);
 
     return (
       <div className="post-form">

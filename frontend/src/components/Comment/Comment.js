@@ -6,29 +6,31 @@ import MdHighlightRemove from 'react-icons/lib/md/highlight-remove';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import * as moment from 'moment';
 
 class Comment extends Component {
   render() {
-    let id = 5;
+    const {comment} = this.props;
+
     return (
       <div className="row">
         <div className="card">
           <div className="card-section">
-            <p>This card makes use of the card-divider element.</p>
+            <p>{comment.body}</p>
           </div>
           <div className="card-section card-footer">
             <p>
-              <span className="post-author">Author</span>, <span className="post-timestamp">12:12</span>
+              <span className="post-author">{comment.author}</span>, <span className="post-timestamp">{moment(comment.timestamp).format("MM-DD-YYYY")}</span>
             </p>
 
             <div className="post-vote">
               <MdThumbDown style={{cursor: 'pointer'}} />
-              <span className="vote-score">5</span>
+              <span className="vote-score">{comment.voteScore}</span>
               <MdThumbUp style={{cursor: 'pointer'}} />
             </div>
 
             <div className="post-controls">
-              <Link to={{pathname: `/comment-edit/${id}`}}>
+              <Link to={{pathname: `/comment-edit/${comment.id}`}}>
                 <MdEdit style={{cursor: 'pointer'}} />
               </Link>
               <MdHighlightRemove style={{cursor: 'pointer'}} />

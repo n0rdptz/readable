@@ -4,6 +4,7 @@ import Comments from '../Comments/Comments';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getPostDetails} from '../../actions/posts';
+import {getComments} from '../../actions/comments';
 import Loading from 'react-loading';
 
 class PostDetail extends Component {
@@ -16,11 +17,14 @@ class PostDetail extends Component {
     if (post.length === 0) {
       dispatch(getPostDetails(id));
     }
+
+    dispatch(getComments(id));
   }
   render() {
     const {id} = this.props.match.params;
-    const {posts} = this.props;
+    const {posts, comments} = this.props;
     const post = posts.items.filter(post => post.id === id)[0];
+    const showingComments = comments.items.filter(comment => comment.parentId === id);
 
     return (
       <div className="post-detail">
@@ -30,13 +34,16 @@ class PostDetail extends Component {
         {post !== undefined &&
           <Post post={post} />
         }
+        {showingComments.length > 0 &&
+          <Comments comments={showingComments} />
+        }
       </div>
     )
   }
 }
 
-function mapStateToProps ({posts}) {
-  return {posts};
+function mapStateToProps ({posts, comments}) {
+  return {posts, comments};
 }
 
 export default withRouter(connect(mapStateToProps)(PostDetail))

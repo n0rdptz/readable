@@ -20,25 +20,30 @@ const initialStore = {
 function posts(state = initialStore, action) {
   switch(action.type) {
     case REQUEST_POSTS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true
-      });
+      };
     case RECEIVE_POSTS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
-        items: unionBy(state.items, action.posts, 'id')
-      });
+        items: unionBy(action.posts, state.items, 'id')
+      };
     case ADD_POST:
-      return state;
+      return {
+        ...state,
+        items: unionBy([action.post], state.items, 'id')
+      };
     case REQUEST_POST_DETAILS:
       return Object.assign({}, state, {
         isFetching: true
       });
     case RECEIVE_POST_DETAILS:
-      return Object.assign({}, state, {
+      return {
         isFetching: false,
-        items: state.items.concat(action.post)
-      });
+        items: unionBy([action.post], state.items, 'id')
+      };
     case VOTE_POST:
       return {
         ...state,
@@ -52,10 +57,9 @@ function posts(state = initialStore, action) {
       return {
         ...state,
         items: state.items.map(post => {
-          if (post.id === action.post.id) {
-            return action.post;
-          }
-          return post;
+          return post.id === action.post.id ?
+            action.post :
+            post;
         })
       };
     case DELETE_POST:

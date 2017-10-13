@@ -6,7 +6,6 @@ const initialStore = {
 };
 
 function categories(state = initialStore, action) {
-  console.log(action);
   switch(action.type) {
     case REQUEST_CATEGORIES:
       return Object.assign({}, state, {

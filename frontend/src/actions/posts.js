@@ -98,3 +98,17 @@ export const editPost = function(id, post) {
       .then(post => dispatch(edit(post)));
   }
 };
+
+function add(post) {
+  return {
+    type: ADD_POST,
+    post
+  }
+}
+
+export const addPost = function(post) {
+  return dispatch => {
+    API.addPost(post)
+      .then(post => dispatch(add(post)));
+  }
+};

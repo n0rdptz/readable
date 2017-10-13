@@ -24,12 +24,4 @@ class Page extends Component {
   }
 }
 
-function mapStateToProps () {
-  return {};
-}
-
-function mapDispatchToProps (dispatch) {
-  return {};
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Page))
+export default withRouter(connect()(Page))

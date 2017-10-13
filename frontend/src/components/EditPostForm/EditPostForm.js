@@ -39,20 +39,13 @@ class EditPostForm extends Component {
     }
   }
 
-  handleTitleChange(value) {
+  handleChange(field, value) {
     this.setState((prevState) => {
-      return Object.assign(
-        prevState,
-        {title: value, isValid: true}
-      );
-    });
-  }
-  handleBodyChange(value) {
-    this.setState((prevState) => {
-      return Object.assign(
-        prevState,
-        {body: value, isValid: true}
-      );
+      return {
+        ...prevState,
+        [field]: value,
+        isValid: true
+      }
     });
   }
 
@@ -72,8 +65,8 @@ class EditPostForm extends Component {
       });
     } else {
       dispatch(editPost(id, {
-        title: title,
-        body: body
+        title,
+        body
       }));
     }
   }
@@ -95,7 +88,7 @@ class EditPostForm extends Component {
               <input id="post-title"
                      name="post-title"
                      value={this.state.title}
-                     onChange={(event) => this.handleTitleChange(event.target.value)}
+                     onChange={(event) => this.handleChange('title', event.target.value)}
                      type="text"
                      placeholder="Title"
               />
@@ -106,7 +99,7 @@ class EditPostForm extends Component {
               <textarea id="post-text"
                         name="post-text"
                         value={this.state.body}
-                        onChange={this.handleBodyChange}
+                        onChange={(event) => this.handleChange('body', event.target.value)}
                         type="text"
                         placeholder="Text">
               </textarea>

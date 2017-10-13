@@ -45,7 +45,7 @@ class CreateCommentForm extends Component {
 
     return (
       <div className="comment-form">
-        <h5>Add comment</h5>
+        <h5>Add commentary</h5>
         <form onSubmit={(event) => this.handleSubmit(event)}>
 
           <div className="row">

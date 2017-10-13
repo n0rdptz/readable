@@ -118,3 +118,15 @@ main {
 .comments .card .card-footer {
   font-size: 13px;
 }
+
+.posts-sorting {
+  margin-bottom: 10px;
+}
+
+.posts-sorting input[type="checkbox"] {
+  vertical-align: -2px;
+}
+
+.posts-sorting input[type="checkbox"]:not(:first-child) {
+  margin-left: 20px;
+}

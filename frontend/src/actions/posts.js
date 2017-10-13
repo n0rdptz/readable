@@ -8,8 +8,6 @@ export const RECEIVE_POST_DETAILS = 'RECEIVE_POST_DETAILS';
 export const VOTE_POST = 'VOTE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const DELETE_POST = 'DELETE_POST';
-export const REQUEST_POST_COMMENT = 'REQUEST_POST_COMMENT';
-export const RECEIVE_POST_COMMENT = 'RECEIVE_POST_COMMENT';
 
 function requestPosts() {
   return {

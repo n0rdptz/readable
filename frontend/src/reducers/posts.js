@@ -7,8 +7,6 @@ import {
   VOTE_POST,
   EDIT_POST,
   DELETE_POST,
-  REQUEST_POST_COMMENT,
-  RECEIVE_POST_COMMENT,
 } from '../actions/posts';
 import unionBy from 'lodash/unionBy';
 
@@ -63,11 +61,10 @@ function posts(state = initialStore, action) {
         })
       };
     case DELETE_POST:
-      return state;
-    case REQUEST_POST_COMMENT:
-      return state;
-    case RECEIVE_POST_COMMENT:
-      return state;
+      return {
+        ...state,
+        items: unionBy([action.post], state.items, 'id')
+      };
     default:
       return state;
   }

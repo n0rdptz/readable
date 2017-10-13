@@ -33,6 +33,15 @@ function comments(state = initialStore, action) {
         ...state,
         items: unionBy([action.comment], state.items, 'id')
       };
+    case REQUEST_COMMENT_DETAILS:
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    case RECEIVE_COMMENT_DETAILS:
+      return {
+        isFetching: false,
+        items: unionBy([action.comment], state.items, 'id')
+      };
     case VOTE_COMMENT:
       return {
         ...state,

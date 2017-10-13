@@ -97,8 +97,7 @@ export const addComment = (comment) => {
 
 export const getCommentDetails = (id) => {
   return fetch(`${api}/comments/${id}`, {headers})
-    .then(res => res.json())
-    .then(data => data.details);
+    .then(res => res.json());
 };
 
 export const voteComment = (id, option) => {

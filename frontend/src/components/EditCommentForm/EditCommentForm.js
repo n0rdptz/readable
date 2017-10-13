@@ -71,7 +71,11 @@ class EditCommentForm extends Component {
   render() {
     const {comments, history} = this.props;
     const {id} = this.props.match.params;
-    const comment = comments.items.filter(comment => comment.id === id)[0];
+    console.log(comments.items.map(item => item));
+    const comment = comments.items.filter(comment => {
+      console.log(comment);
+      return comment.id === id;
+    })[0];
 
     return (
       <div className="comment-form">

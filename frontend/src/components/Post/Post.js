@@ -16,8 +16,9 @@ class Post extends Component {
     dispatch(votePost(id, option));
   }
   deletePost(id) {
-    const { dispatch } = this.props;
+    const { dispatch, history } = this.props;
     dispatch(deletePost(id));
+    history.push('/posts');
   }
 
   render() {

@@ -9,31 +9,7 @@ import './styles/index.css';
 import App from './containers/App/App';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
-import * as API from './utils/api';
 import configureStore from './store/configureStore';
-
-// API.getPostDetails('1')
-//   .then(data => console.log('post details', data));
-// API.votePost('1', 'upVote')
-//    .then(data => console.log('vote', data));
-// API.getCategories()
-//   .then(categories => console.log('categories', categories));
-// API.addPost({
-//   title: 'test',
-//   body: 'test',
-//   author: 'test',
-//   category: 'react'
-// })
-//   .then((data) => {console.log('add post', data)});
-//
-// API.getPostDetails('8xf0y6ziyjabvozdd253nd')
-//   .then(data => console.log('post', data));
-//
-// API.getComments('8xf0y6ziyjabvozdd253nd')
-//   .then(data => console.log('comments', data));
-//
-// API.getCategoryPosts('react')
-//   .then(data => console.log('category posts', data));
 
 const store = configureStore();
 

@@ -9,8 +9,8 @@ class PostsSorting extends Component {
 
     return (
       <form className="posts-sorting">
-        <input id="vote-sort" onClick={() => this.handleCheck('vote')} checked={this.props.sort === 'vote'} type="checkbox"/> <label htmlFor="vote-sort">Sort by voteScore</label>
-        <input id="time-sort" onClick={() => this.handleCheck('time')} checked={this.props.sort === 'time'} type="checkbox"/> <label htmlFor="time-sort">Sort by timestamp</label>
+        <input id="vote-sort" checked={this.props.sort === 'vote'} onChange={() => this.handleCheck('vote')} type="checkbox"/> <label htmlFor="vote-sort">Sort by voteScore</label>
+        <input id="time-sort" checked={this.props.sort === 'time'} onChange={() => this.handleCheck('time')} type="checkbox"/> <label htmlFor="time-sort">Sort by timestamp</label>
       </form>
     )
   }

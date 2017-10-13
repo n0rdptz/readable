@@ -105,3 +105,19 @@ export const deleteComment = function(id) {
       .then(comment => dispatch(delComment(comment)));
   }
 };
+
+export const getAndDeleteComments = function(id) {
+  return (dispatch, getState) => {
+    dispatch(requestCommentDetails());
+    API.getComments(id)
+      .then(comments => {
+        dispatch(receiveCommentDetails(comments));
+
+        let store = getState();
+        const delComments = store.comments.items.filter(item => item.parentId === id);
+        for (let c of delComments) {
+          dispatch(deleteComment(c.id));
+        }
+      })
+  }
+};

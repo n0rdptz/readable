@@ -1,4 +1,5 @@
 import * as API from '../utils/api';
+import {getAndDeleteComments} from './comments';
 
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
@@ -108,5 +109,22 @@ export const addPost = function(post) {
   return dispatch => {
     API.addPost(post)
       .then(post => dispatch(add(post)));
+  }
+};
+
+function delPost(post) {
+  return {
+    type: DELETE_POST,
+    post
+  };
+}
+
+export const deletePost = function(id) {
+  return dispatch => {
+    API.deletePost(id)
+      .then(post => {
+        dispatch(delPost(post));
+        dispatch(getAndDeleteComments(id));
+      });
   }
 };

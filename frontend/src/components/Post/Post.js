@@ -7,13 +7,17 @@ import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as moment from 'moment';
-import {votePost} from '../../actions/posts';
+import {votePost, deletePost} from '../../actions/posts';
 
 
 class Post extends Component {
   votePost(id, option) {
     const { dispatch } = this.props;
     dispatch(votePost(id, option));
+  }
+  deletePost(id) {
+    const { dispatch } = this.props;
+    dispatch(deletePost(id));
   }
 
   render() {
@@ -43,7 +47,7 @@ class Post extends Component {
               <Link to={{pathname: `/post-edit/${post.id}`}}>
                 <MdEdit style={{cursor: 'pointer'}} />
               </Link>
-              <MdHighlightRemove style={{cursor: 'pointer'}} />
+              <MdHighlightRemove onClick={() => this.deletePost(post.id)} style={{cursor: 'pointer'}} />
             </div>
           </div>
         </div>

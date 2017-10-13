@@ -4,7 +4,7 @@ import Page from '../Page/Page';
 import Posts from '../Posts/Posts';
 import EditPostForm from '../../components/EditPostForm/EditPostForm';
 import CreatePostForm from '../../components/CreatePostForm/CreatePostForm';
-import CommentForm from '../CommentForm/CommentForm';
+import EditCommentForm from '../../components/EditCommentForm/EditCommentForm';
 import PostDetail from '../PostDetail/PostDetail';
 import {fetchCategoriesIfNeeded} from '../../actions/categories';
 import {connect} from 'react-redux';
@@ -49,16 +49,12 @@ class App extends Component {
 
         <Route path="/comment-edit/:id" render={() => (
           <Page>
-            <CommentForm />
+            <EditCommentForm />
           </Page>
         )} />
       </div>
     );
   }
-}
-
-function mapStateToProps () {
-  return {};
 }
 
 export default withRouter(connect()(App))

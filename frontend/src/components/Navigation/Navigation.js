@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import NavLink from '../NavLink/NavLink';
 
 class Navigation extends Component {
   render() {
     const {categories} = this.props;
+    const allPostsLink = {
+      path: '',
+      name: 'all'
+    };
     return (
       <nav>
         {categories.items.length > 0 &&
           <ul className="vertical menu">
-            <li>
-              <Link className="nav-link" to={{pathname: `/posts/`}}>All</Link>
-            </li>
+            <NavLink category={allPostsLink} />
+
             {categories.items.map(category => (
-              <li key={category.path}>
-                <Link className="nav-link" to={{pathname: `/posts/${category.path}`}}>{category.name}</Link>
-              </li>
+              <NavLink key={category.path} category={category} />
             ))}
           </ul>
         }

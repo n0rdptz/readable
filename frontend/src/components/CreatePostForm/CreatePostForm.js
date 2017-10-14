@@ -11,17 +11,23 @@ class CreatePostForm extends Component {
     author: '',
     isValid: true
   };
-  componentDidUpdate () {
+  initCategorySelector() {
     const {categories} = this.props;
 
     if (this.state.category === '' && categories.items.length > 0) {
       this.setState(prevState => {
         return {
           ...prevState,
-          category: categories.items[1].name
+          category: categories.items[0].name
         }
       })
     }
+  }
+  componentDidMount () {
+    this.initCategorySelector();
+  }
+  componentDidUpdate () {
+    this.initCategorySelector();
   }
 
   handleChange(field, value) {
@@ -92,7 +98,7 @@ class CreatePostForm extends Component {
                       onChange={event => this.handleChange('category', event.target.value)}
               >
                 {categories.items.map(category => (
-                  <option key={category.path} value="category.name">{category.name}</option>
+                  <option key={category.path} value={category.name}>{category.name}</option>
                 ))}
               </select>
             </div>

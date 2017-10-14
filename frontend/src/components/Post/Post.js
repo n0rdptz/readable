@@ -3,12 +3,13 @@ import MdThumbUp from 'react-icons/lib/md/thumb-up';
 import MdThumbDown from 'react-icons/lib/md/thumb-down';
 import MdEdit from 'react-icons/lib/md/edit';
 import MdHighlightRemove from 'react-icons/lib/md/highlight-remove';
+import MdComment from 'react-icons/lib/md/comment';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as moment from 'moment';
 import {votePost, deletePost} from '../../actions/posts';
-
+import {getComments} from '../../actions/comments';
 
 class Post extends Component {
   votePost(id, option) {
@@ -20,9 +21,14 @@ class Post extends Component {
     dispatch(deletePost(id));
     history.push('/posts');
   }
+  componentDidMount() {
+    const {dispatch, post} = this.props;
+    dispatch(getComments(post.id));
+  }
 
   render() {
-    const {post} = this.props;
+    const {post, comments} = this.props;
+    const commentCounter = comments.items.filter(comment => comment.parentId === post.id).length;
 
     return (
       <div className="row">
@@ -36,6 +42,12 @@ class Post extends Component {
           <div className="card-section card-footer">
             <p>
               <span className="post-author">{post.author}</span>, <span className="post-timestamp">{moment(post.timestamp).format("MM-DD-YYYY")}</span>
+            </p>
+
+            <p>
+              <Link to={{pathname: `/post/${post.id}`}}>
+                <MdComment style={{cursor: 'pointer'}} /> {commentCounter}
+              </Link>
             </p>
 
             <div className="post-vote">
@@ -57,8 +69,8 @@ class Post extends Component {
   }
 }
 
-function mapStateToProps ({posts}) {
-  return {posts};
+function mapStateToProps ({comments}) {
+  return {comments};
 }
 
 export default withRouter(connect(mapStateToProps)(Post));

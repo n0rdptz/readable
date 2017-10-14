@@ -6,7 +6,9 @@ class Comments extends Component {
     const {comments} = this.props;
     return (
       <div className="comments">
-        <h5>Commentaries</h5>
+        <h5>Commentaries {comments.length > 0 && (
+          <span>({comments.length})</span>
+        )}</h5>
         {comments.map(comment => (
           <Comment key={comment.id} comment={comment} />
         ))}

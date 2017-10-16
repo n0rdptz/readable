@@ -52,7 +52,7 @@ class EditPostForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const {dispatch} = this.props;
+    const {dispatch, history} = this.props;
     const {id} = this.props.match.params;
 
     const {title, body} = this.state;
@@ -68,6 +68,7 @@ class EditPostForm extends Component {
         title,
         body
       }));
+      history.goBack();
     }
   }
 

@@ -6,11 +6,10 @@ class Navigation extends Component {
   render() {
     const {category, posts} = this.props;
     let postsCounter = null;
-    if (category.path !== '') {
-      postsCounter = posts.items.filter(post => post.category === category.name).length;
-    } else {
-      postsCounter = posts.items.length;
-    }
+    category.path !== ''
+      ? postsCounter = posts.items.filter(post => post.category === category.name).length
+      : postsCounter = posts.items.length;
+
     return (
       <li key={category.path}>
         <Link className="nav-link" to={{pathname: `/posts/${category.path}`}}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Post from '../../components/Post/Post';
 import CreateCommentForm from '../../components/CreateCommentForm/CreateCommentForm';
 import Comments from '../Comments/Comments';
+import NotFound from '../NotFound/NotFound';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getPostDetails} from '../../actions/posts';
@@ -34,11 +35,14 @@ class PostDetail extends Component {
         {posts.isFetching === true &&
           <Loading delay={200} type='spin' color='#222' className='loading' />
         }
-        {post !== undefined &&
+        {post !== undefined && !post.deleted &&
           <Post post={post} />
         }
-        {post !== undefined &&
+        {post !== undefined && !post.deleted &&
           <CreateCommentForm parentId={post.id} />
+        }
+        {(post === undefined || post.deleted) &&
+          <NotFound />
         }
         {showingComments.length > 0 &&
           <Comments comments={showingComments} />

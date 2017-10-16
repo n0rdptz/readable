@@ -21,11 +21,10 @@ class Posts extends Component {
   render() {
     const { category } = this.props.match.params;
     let posts = null;
-    if (category) {
-      posts = this.props.posts.items.filter(post => post.category === category && !post.deleted);
-    } else {
-      posts = this.props.posts.items.filter(post => !post.deleted);
-    }
+
+    category
+      ? posts = this.props.posts.items.filter(post => post.category === category && !post.deleted)
+      : posts = this.props.posts.items.filter(post => !post.deleted);
 
     if (posts.length > 0) {
       this.state.sort === 'vote'

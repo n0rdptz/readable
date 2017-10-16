@@ -7,7 +7,7 @@ import {
   VOTE_POST,
   EDIT_POST,
   DELETE_POST,
-} from '../actions/posts';
+} from '../actions/postActionTypes';
 import unionBy from 'lodash/unionBy';
 
 const initialStore = {

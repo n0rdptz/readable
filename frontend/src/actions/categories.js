@@ -1,7 +1,9 @@
 import * as API from '../utils/api';
 
-export const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
-export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
+import {
+  REQUEST_CATEGORIES,
+  RECEIVE_CATEGORIES
+} from './categoryActionTypes';
 
 function requestCategories() {
   return {

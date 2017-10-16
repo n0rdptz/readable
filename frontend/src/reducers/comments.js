@@ -7,7 +7,7 @@ import {
   VOTE_COMMENT,
   EDIT_COMMENT,
   DELETE_COMMENT
-} from '../actions/comments';
+} from '../actions/commentActionTypes';
 import unionBy from 'lodash/unionBy';
 
 const initialStore = {

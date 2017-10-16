@@ -1,4 +1,7 @@
-import {REQUEST_CATEGORIES, RECEIVE_CATEGORIES} from '../actions/categories';
+import {
+  REQUEST_CATEGORIES,
+  RECEIVE_CATEGORIES
+} from '../actions/categoryActionTypes';
 
 const initialStore = {
   isFetching: false,
